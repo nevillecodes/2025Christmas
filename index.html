@@ -117,18 +117,18 @@
 
   <script>
     const responses = [
-      "🎁 Merry Christmas to you!",
-      "❄️ Sending you warm holiday wishes!",
-      "🎄 Hope your holiday season is magical!",
-      "⛄ Stay cozy and enjoy the Christmas spirit!",
-      "✨ Wishing you joy and cheer!"
+      "🎁 Nice try, but you need to think again!",
+      "❄️ Ha ha ha, nope!",
+      "🎄 You'll never identify me!",
+      "⛄ Santa won't be impressed with your poor attempt!",
+      "✨ Wrong!  Have you been on the sherry?"
     ];
 
     function checkName() {
       const name = document.getElementById("nameInput").value.trim().toLowerCase();
 
       if (name === "sugarlight cadey".toLowerCase()) {
-        window.location.href = "https://www.google.com";
+        window.location.href = "https://youtube.com/shorts/YB71uOIb1a8";
       } else {
         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
         document.getElementById("response").textContent = randomResponse;
