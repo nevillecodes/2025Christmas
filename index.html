@@ -28,7 +28,7 @@
       text-shadow: 2px 2px 4px #000;
     }
 
-    input {
+    select {
       padding: 10px;
       font-size: 1.2em;
       border-radius: 10px;
@@ -107,7 +107,39 @@
 
   <h2>🎅 Who is the guilty elf? 🎄</h2>
 
-  <input type="text" id="nameInput" placeholder="Elf name...">
+  <select id="elfSelect">
+    <option value="">-- Select an elf name --</option>
+    <option>Button McBells</option>
+    <option>Cinnamon Swirl</option>
+    <option>Cookie Crumble</option>
+    <option>Cozy Cuddlebun</option>
+    <option>Frosty Flick</option>
+    <option>Glitter Gumdrop</option>
+    <option>Gumdrop Giggles</option>
+    <option>Holly Sprig</option>
+    <option>Jolly Jangles</option>
+    <option>Jolly Jinglesworth</option>
+    <option>Maple Muddle</option>
+    <option>Marshmallow Munch</option>
+    <option>Merry McTwirl</option>
+    <option>Mistletoe Mimi</option>
+    <option>Nutmeg Noodle</option>
+    <option>Peppermint Pip</option>
+    <option>Peppermint Twirl</option>
+    <option>Pudding Poppet</option>
+    <option>Snickerdoodle Sue</option>
+    <option>Snowbell Skippy</option>
+    <option>Snowflake Nib</option>
+    <option>Sparkle Snip</option>
+    <option>Sprinkles Stardrop</option>
+    <option>Starshine Spriglet</option>
+    <option>Sugarlight Cadey</option>
+    <option>Sugarplum Sunny</option>
+    <option>Taffy Twinkles</option>
+    <option>Tinsel Toes</option>
+    <option>Twinkle Sprout</option>
+    <option>Winky Winterbud</option>
+  </select>
   <button onclick="checkName()">Submit</button>
 
   <div id="response"></div>
@@ -125,7 +157,7 @@
     ];
 
     function checkName() {
-      const name = document.getElementById("nameInput").value.trim().toLowerCase();
+      const name = document.getElementById("elfSelect").value.trim().toLowerCase();
 
       if (name === "sugarlight cadey".toLowerCase()) {
         window.location.href = "https://youtube.com/shorts/YB71uOIb1a8";
