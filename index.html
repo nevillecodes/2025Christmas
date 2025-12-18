@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Christmas Name Checker</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: white;
+      overflow: hidden;
+
+      /* Improved non-tiling animated gradient */
+      background: linear-gradient(135deg, #8b0000, #b30000, #ff3333);
+      background-size: 600% 600%;
+      animation: christmasGlow 10s ease infinite;
+    }
+
+    @keyframes christmasGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      font-size: 2em;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      border: none;
+      width: 250px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #1fa012;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px #000;
+    }
+
+    button:hover {
+      background: #27c71b;
+    }
+
+    #response {
+      margin-top: 25px;
+      font-size: 1.4em;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    /* SNOWFLAKES */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1.5em;
+      user-select: none;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    /* FAIRY LIGHTS */
+    #fairyLights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .light {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: gold;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎅 Who is the guilty elf? 🎄</h2>
+
+  <input type="text" id="nameInput" placeholder="Elf name...">
+  <button onclick="checkName()">Submit</button>
+
+  <div id="response"></div>
+
+  <!-- Fairy Lights Container -->
+  <div id="fairyLights"></div>
+
+  <script>
+    const responses = [
+      "🎁 Merry Christmas to you!",
+      "❄️ Sending you warm holiday wishes!",
+      "🎄 Hope your holiday season is magical!",
+      "⛄ Stay cozy and enjoy the Christmas spirit!",
+      "✨ Wishing you joy and cheer!"
+    ];
+
+    function checkName() {
+      const name = document.getElementById("nameInput").value.trim().toLowerCase();
+
+      if (name === "starlight cadey".toLowerCase()) {
+        window.location.href = "https://www.google.com";
+      } else {
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        document.getElementById("response").textContent = randomResponse;
+      }
+    }
+
+    /* SNOWFLAKES */
+    function createSnowflake() {
+      const snow = document.createElement("div");
+      snow.className = "snowflake";
+      snow.textContent = "❄";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = Math.random() * 3 + 4 + "s";
+      snow.style.opacity = Math.random();
+      document.body.appendChild(snow);
+      setTimeout(() => snow.remove(), 8000);
+    }
+    setInterval(createSnowflake, 200);
+
+    /* FAIRY LIGHTS GENERATOR */
+    function createFairyLights() {
+      const container = document.getElementById("fairyLights");
+      const lightsCount = 60; // number of bulbs around the edges
+
+      for (let i = 0; i < lightsCount; i++) {
+        const bulb = document.createElement("div");
+        bulb.className = "light";
+
+        // Random position around the border
+        const edge = Math.floor(Math.random() * 4);
+
+        if (edge === 0) { // top
+          bulb.style.top = "0px";
+          bulb.style.left = Math.random() * 100 + "vw";
+        } else if (edge === 1) { // bottom
+          bulb.style.bottom = "0px";
+          bulb.style.left = Math.random() * 100 + "vw";
+        } else if (edge === 2) { // left
+          bulb.style.left = "0px";
+          bulb.style.top = Math.random() * 100 + "vh";
+        } else { // right
+          bulb.style.right = "0px";
+          bulb.style.top = Math.random() * 100 + "vh";
+        }
+
+        bulb.style.animationDelay = Math.random() * 2 + "s";
+
+        container.appendChild(bulb);
+      }
+    }
+
+    createFairyLights();
+  </script>
+
+</body>
+</html>
